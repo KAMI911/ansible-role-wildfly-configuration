@@ -1,0 +1,16 @@
+---
+galaxy_info:
+  author: Kálmán Szalai - KAMI
+  role_name: wildfly-configuration
+  description: "Configures Wildfly's application runtime"
+  license: LGPLv3
+  min_ansible_version: 2.2
+  platforms:
+    - name: EL
+      versions:
+        - 6
+        - 7
+  galaxy_tags:
+    - development
+    - web
+dependencies: []

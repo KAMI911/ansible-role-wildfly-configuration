@@ -1,0 +1,29 @@
+
+- hosts: localhost
+  tasks:
+    - name: Create server group
+      jcli_servergroup:
+        jboss_home: /opt/wildfly/wildfly_app-system/
+        server_group_name: mygroup1
+        state: present
+        user: admin
+        password: nimda
+      register: checkit
+
+    - debug: var=checkit
+
+    - name: Server
+      jcli_server:
+        jboss_home: /opt/wildfly/wildfly_app-system/
+        # host: {{ ansible_hostname }}
+        host: blabla
+        server_group_name: mygroup1
+        server_config_name: myserver1
+        server_socket_binding_port_offset: 100
+        server_group_socket: full-ha-sockets
+        state: present
+        user: admin
+        password: nimda
+      register: checkit
+
+    - debug: var=checkit
